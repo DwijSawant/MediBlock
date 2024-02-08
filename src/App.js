@@ -1,8 +1,5 @@
 import './App.css';
 import Datapage from './Datapage/Datapage';
-import Display from './Datapage/Display';
-import Navbar from './Navbar/Navbar';
-import Upload from './Datapage/Upload'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from './Homepage/Homepage';
 function App() {
