@@ -85,30 +85,6 @@ export default function Display() {
 	const [ipfsLinks, setIpfsLinks] = useState([]);
 
 
-  const handleUpload = async () => {
-	if (file) {
-		try {
-			await provider.send("eth_requestAccounts", []);
-			const accounts = await provider.listAccounts();
-			const signer = provider.getSigner(accounts[0]);
-			const ipfsHash = await pinFileToIPFS(file);
-
-			// Set contract 
-			const contract = new ethers.Contract(contractAddress, abi, signer);
-			setContract(contract);
-
-			// Upload ipfsHash to the blockchain
-			await contract.uploadFile(ipfsHash);
-
-			console.log("IPFS Hash:", ipfsHash);
-	
-		} catch (error) {
-			console.error("Error during upload:", error);
-		}
-	} else {
-		console.log('No file selected');
-	}
-};
 const fetchFromIPFS = async () => {
 	if (contract) {
 		try {
