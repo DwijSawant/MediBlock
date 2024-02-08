@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
 .heading {
     font-family: "Fira Sans", sans-serif;
     font-weight: 500;
@@ -194,7 +195,7 @@
 
 .card2 {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     height: 180px;
     background: #353535;
     border-radius: 20px;
@@ -273,15 +274,15 @@
 }
 
 #cardleft {
-    margin-left: 350px;
+    margin-left: 300px;
 }
 
 #cardright {
-    margin-left: 900px;
+    margin-left: 850px;
 }
 
 .link {
-    width: 11em;
+    width: 15em;
     height: 2.1em;
     margin-top: 5px;
     margin-right: 8px;
