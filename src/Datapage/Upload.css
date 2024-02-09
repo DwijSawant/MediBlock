@@ -14,13 +14,14 @@
 }
 
 .wrapper {
-    width: 430px;
+    width: 435px;
+    height: 700px;
     background: #fff;
     border-radius: 5px;
     padding: 30px;
     box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
     position: absolute;
-    top: 50%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -135,4 +136,28 @@ section .details span {
 
 .uploaded-area i.fa-check {
     font-size: 16px;
+}
+.Backbotm {
+ background-color: black;
+ color: white;
+ border-radius: 0.625em;
+ width: 104px;
+ height: 30px;
+ text-align: center;
+}
+
+
+.links{
+ color: black;
+ background-color: cyan;
+ border-color: black;
+ border-width: 3px;
+ border-radius: 5px;
+ padding: 3px;
+ box-sizing: border-box;
+}
+li{
+    margin-bottom: 12px;
+    margin-top: 10px;
+
 }

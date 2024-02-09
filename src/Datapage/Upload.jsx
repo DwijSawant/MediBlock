@@ -124,24 +124,26 @@ const FileUploader = () => {
 
     return (
         <div className="wrapper">
-            <header>File Uploader JavaScript</header>
-            <form action='#' >
-                <input className="file-input" type="file" name="file" hidden />
+            <header>File Uploader/Fetcher</header>
+            <input type="file" onChange={handleFileChange} className='selectfile'/>
+            <div>
+            <button onClick={handleUpload} className='Backbotm'>Upload</button>
+            </div>
                 <IoCloudUploadOutline size='100px' />
                 <p>Browse File to Upload</p>
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
-            <div> {/* fetchwalathing */}
-            <button onClick={fetchFromIPFS}>Fetch from IPFS</button>
+            <div className='fetchgang'> {/* fetchwalathing */}
+            <button onClick={fetchFromIPFS} className='Backbotm'>Fetch</button>
+            <div>
 		<ul>
 			{ipfsLinks.map((link, index) => (
 				<li key={index}>
-					<a href={link} target="_blank" rel="noopener noreferrer">File {index + 1}</a>
+					<a href={link} target="_blank" rel="noopener noreferrer" className='links'>File {index + 1}</a>
 				</li>
 			))}
 		</ul>
         </div>
-            </form>
+        </div>
+            
         </div>
     );
 };

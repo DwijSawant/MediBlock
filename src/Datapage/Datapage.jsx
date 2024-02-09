@@ -9,8 +9,7 @@ const Datapage = () => {
         <div>
             <Navbar/>
             <div class='btn2'>
-                <button onClick={() => setActive('upload')}>Upload</button>
-                <button onClick={() => setActive('display')}>Display</button>
+                <button onClick={() => setActive('upload')}>BlockUI</button>
             </div>
             {active === 'upload' && <Upload />}
             {active === 'display' && <Display />}
