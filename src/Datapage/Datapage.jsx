@@ -3,6 +3,7 @@ import Upload from './Upload';
 import Display from './Display';
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
+
 const Datapage = () => {
     const [active,setActive] = useState("upload");
     return (
