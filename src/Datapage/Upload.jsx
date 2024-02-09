@@ -129,9 +129,19 @@ const FileUploader = () => {
                 <input className="file-input" type="file" name="file" hidden />
                 <IoCloudUploadOutline size='100px' />
                 <p>Browse File to Upload</p>
-            </form>
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
+            <div>
+            <button onClick={fetchFromIPFS}>Fetch from IPFS</button>
+		<ul>
+			{ipfsLinks.map((link, index) => (
+				<li key={index}>
+					<a href={link} target="_blank" rel="noopener noreferrer">File {index + 1}</a>
+				</li>
+			))}
+		</ul>
+        </div>
+            </form>
         </div>
     );
 };
