@@ -131,7 +131,7 @@ const FileUploader = () => {
                 <p>Browse File to Upload</p>
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
-            <div>
+            <div> {/* fetchwalathing */}
             <button onClick={fetchFromIPFS}>Fetch from IPFS</button>
 		<ul>
 			{ipfsLinks.map((link, index) => (
