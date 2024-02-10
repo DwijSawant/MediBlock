@@ -8,8 +8,8 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route index element={<HomePage />} />
-          <Route path='/Datapage' element={<Upload/>} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/Datapage' element={<Upload />} />
           <Route path='/Loginpage' element={<Loginpage />} />
         </Routes>
       </BrowserRouter>

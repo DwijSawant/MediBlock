@@ -21,8 +21,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="Navbar">
-      <img src={logo} alt="logo"/>
-      <span className="nav-logo">MediBlock</span>
+      <img src={logo} alt="logo" />
+      <span className="nav-logo" onClick={() => navigate("/")}>MediBlock</span>
       <div className='nav-items'>
         <button class='btn' onClick={() => navigate("/Loginpage")}>Profile</button>
         <button class='btn' onClick={() => navigate("/Datapage")}>Documents</button>
