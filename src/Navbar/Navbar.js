@@ -22,6 +22,7 @@ const Navbar = () => {
       <span className="nav-logo">MediBlock</span>
       <div className='nav-items'>
         <button class='btn' onClick={()=> navigate("/Datapage")}>Documents</button>
+        <button class='btn' onClick={()=> navigate("/Loginpage")}>Profile</button>
         <button id="add" className="btn" onClick={SignUp}>Connect Wallet</button>
       </div>
     </div>
