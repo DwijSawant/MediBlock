@@ -12,3 +12,16 @@
     width: 100px;
     height: 30px;
 }
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background: #202124;
+    margin-top: 50px;
+    height: 45px;
+}
+
+.footer h1 {
+    font-family: "Fira Sans", sans-serif;
+    color: aliceblue;
+    margin: 10px;
+}
