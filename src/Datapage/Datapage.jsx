@@ -1,6 +1,6 @@
 import React from 'react';
 import './Datapage.css'
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import uploadicon from '../assets/uploadicon.jpg'
 import { useFileUpload, pinFileToIPFS } from "./ipfs.js";
 import { ethers } from 'ethers';
@@ -83,25 +83,18 @@ const FileUploader = () => {
     const { file, handleFileChange } = useFileUpload();
     const [contract, setContract] = useState(null);
     const [ipfsLinks, setIpfsLinks] = useState([]);
-
-
+    
+    
     const handleUpload = async () => {
         if (file) {
             try {
-                await provider.send("eth_requestAccounts", []);
-                const accounts = await provider.listAccounts();
-                const signer = provider.getSigner(accounts[0]);
+                
                 const ipfsHash = await pinFileToIPFS(file);
-
-                // Set contract 
-                const contract = new ethers.Contract(contractAddress, abi, signer);
-                setContract(contract);
-
-                // Upload ipfsHash to the blockchain
+                
                 await contract.uploadFile(ipfsHash);
-
+                
                 console.log("IPFS Hash:", ipfsHash);
-
+                
             } catch (error) {
                 console.error("Error during upload:", error);
             }
@@ -113,15 +106,32 @@ const FileUploader = () => {
         if (contract) {
             try {
                 const ipfsHashes = await contract.getFileHashes();
-
+                
                 const links = ipfsHashes.map(hash => `https://gateway.pinata.cloud/ipfs/${hash}`);
-
+                
                 setIpfsLinks(links);
             } catch (error) {
                 console.error("Error fetching files from IPFS:", error);
             }
         }
     };
+    useEffect(() => {
+        async function setupContract() {
+            try {
+                await provider.send("eth_requestAccounts", []);
+                const accounts = await provider.listAccounts();
+                const signer = provider.getSigner(accounts[0]);
+                const contract = new ethers.Contract(contractAddress, abi, signer);
+                setContract(contract);
+                fetchFromIPFS();
+            } catch (error) {
+                console.error("Error setting up contract:", error);
+            }
+        }
+        
+        setupContract();
+
+    }, [fetchFromIPFS]);
 
     return (
         <div>
@@ -138,7 +148,6 @@ const FileUploader = () => {
             </div>
             <div className='fetchgang'> {/* fetchwalathing */}
                 <h1>Document List</h1>
-                <button onClick={fetchFromIPFS} className='Backbotm'>Fetch</button>
                 <div>
                     <ul>
                         {ipfsLinks.map((link, index) => (
